@@ -1,0 +1,23 @@
+<div id="tl_buttons">
+    <a href="<?= ampersand($this->backUrl) ?>" class="header_back" title="<?= Contao\StringUtil::specialchars($this->backBTTitle) ?>" accesskey="b"><?= $this->backBT ?></a>
+</div>
+<div class="re_configuratior">
+    <form class="tl_form" method="post">
+        <div class="tl_formbody_edit">
+            <input type="hidden" name="FORM_SUBMIT" value="tl_configurator">
+            <input type="hidden" name="REQUEST_TOKEN" value="<?= REQUEST_TOKEN ?>">
+
+            <p class="info"><?= $this->description ?></p>
+
+            <div class="em_module_box">
+                <div<?=$this->isActive ? ' class="disabled"' : ''?> id="group_hint"><?=$this->groupHint?></div>
+                <?= $this->content ?>
+            </div>
+        </div>
+
+        <div class="tl_submit_container">
+            <button type="submit" name="submit" class="tl_submit"<?=$this->isActive ? ' disabled' : ''?>><?=$this->submit?></button>
+        </div>
+    </form>
+</div>
+

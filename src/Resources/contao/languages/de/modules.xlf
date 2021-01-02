@@ -1,0 +1,14 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/modules.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="MOD.configurator.0">
+        <source>Setup Wizard</source>
+        <target>Einrichtungsassistent</target>
+      </trans-unit>
+      <trans-unit id="MOD.configurator.1">
+        <source>The setup wizard helps you with the basic setup and provides a pool of preconfigurations. Please note that settings already made manually will be reset.</source>
+        <target>Der Einrichtungsassistent hilft Ihnen bei der Grundeinrichtung und bietet einen Pool an Vorkonfigurationen. Bitte beachten Sie, dass bereits manuell getroffene Einstellungen zurücksetzt werden.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

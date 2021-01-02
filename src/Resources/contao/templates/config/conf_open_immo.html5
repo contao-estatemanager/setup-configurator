@@ -1,0 +1,37 @@
+<?php $this->extend('conf_wrapper'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php if($this->interfaces): ?>
+    <div class="em-widget">
+        <label><?=$this->labelInterface?></label>
+        <select name="interface" id="interface" class="tl_select">
+            <?php foreach($this->interfaces as $id => $title): ?>
+                <option value="<?=$id?>"><?=$title?></option>
+            <?php endforeach; ?>
+            <option value="createInterface">[<?=$this->labelCreateInterface?>]</option>
+        </select>
+        <p class="tl_help tl_tip" title=""><?=$this->descInterface?></p>
+    </div>
+<?php else: ?>
+    <p class="em-message">
+        <?=$this->noInterface?>
+    </p>
+    <div class="em-widget full">
+        <div class="checkbox_container">
+            <input type="checkbox" name="createInterface" id="createInterface" disabled checked value="1"/>
+            <label for="create"><?=$this->labelCreateInterface?></label>
+        </div>
+        <p class="tl_help tl_tip" title=""><?=$this->descCreateInterface?></p>
+    </div>
+<?php endif; ?>
+
+<div class="em-widget full">
+    <div class="checkbox_container">
+        <input type="checkbox" name="openimmo" id="openimmo_127"<?=$this->executed ? ' disabled' : ''?> value="1.2.7"/>
+        <label for="openimmo_127"><?=$this->labelImport?></label>
+    </div>
+    <p class="tl_help tl_tip" title=""><?=$this->descImport?></p>
+</div>
+
+<?php $this->endblock(); ?>

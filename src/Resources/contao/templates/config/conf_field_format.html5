@@ -1,0 +1,11 @@
+<?php $this->extend('conf_wrapper'); ?>
+
+<?php $this->block('content'); ?>
+<div class="em-widget">
+    <div class="checkbox_container">
+        <input type="checkbox" name="fieldformat_default" id="fieldformat_default"<?=$this->executed ? ' disabled' : ''?>/>
+        <label for="fieldformat_default"><?=$this->label?></label>
+    </div>
+    <p class="tl_help tl_tip" title=""><?=$this->desc?></p>
+</div>
+<?php $this->endblock(); ?>
