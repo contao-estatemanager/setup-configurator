@@ -14,6 +14,13 @@ use Contao\Backend;
 use Contao\BackendTemplate;
 use Contao\Input;
 
+use ContaoEstateManager\InterfaceModel;
+
+/**
+ * Configurator class.
+ *
+ * @author Daniele Sciannimanica <https://github.com/doishub>
+ */
 abstract class Configurator extends Backend
 {
     /**
@@ -41,6 +48,12 @@ abstract class Configurator extends Backend
     public $executed = false;
 
     /**
+     * Force module
+     * @var bool
+     */
+    public $force = false;
+
+    /**
      * Configurator constructor
      */
     public function __construct()
@@ -54,6 +67,7 @@ abstract class Configurator extends Backend
     }
 
     /**
+     * Checking the processing of a module
      * @return bool
      */
     public function shouldRun()
@@ -67,7 +81,36 @@ abstract class Configurator extends Backend
      */
     public function compile()
     {
+        $this->objTemplate->force = $this->force;
         $this->objTemplate->executed = $this->executed;
         return $this->objTemplate->parse();
+    }
+
+    /**
+     * Is module active
+     * @return false
+     */
+    public function isActive()
+    {
+        return false;
+    }
+
+    /**
+     * Return the current interface model
+     *
+     * @return InterfaceModel|null
+     */
+    public function getInterface()
+    {
+        if(Input::post('interface_id') && is_numeric(Input::post('interface_id')))
+        {
+            return InterfaceModel::findById(Input::post('interface_id'));
+        }
+        elseif(Input::post('interface_id')  === 'demo')
+        {
+            return InterfaceModel::findByAnbieternr('DEMO');
+        }
+
+        return null;
     }
 }

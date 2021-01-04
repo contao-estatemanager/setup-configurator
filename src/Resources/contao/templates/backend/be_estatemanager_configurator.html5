@@ -16,8 +16,37 @@
         </div>
 
         <div class="tl_submit_container">
-            <button type="submit" name="submit" class="tl_submit"<?=$this->isActive ? ' disabled' : ''?>><?=$this->submit?></button>
+            <button type="submit" name="submit" class="tl_submit"><?=$this->submit?></button>
         </div>
     </form>
 </div>
 
+<script>
+    if(!!document.querySelector('.em-header input[type="checkbox"]')) {
+        var groups = document.querySelectorAll('.em-header input[type="checkbox"]');
+
+        for(var i=0; i < groups.length; i++)
+        {
+            var groupWrapper = groups[i].parentNode.parentNode;
+            var groupInputs = groupWrapper.querySelectorAll('.em-content input');
+
+            for(var j=0; j < groupInputs.length; j++){
+                groupInputs[j].parentToggle = groupWrapper;
+                groupInputs[j].addEventListener('change', function(){
+                    var input = this.parentToggle.querySelector('.em-header input[type="checkbox"]');
+                    var type = this.type.toLowerCase();
+
+                    if((type !== 'checkbox' && !!this.value) || (type === 'checkbox' && !!this.checked))
+                    {
+                        input.checked=true;
+
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+
+                        this.parentToggle.querySelector('.em-header input[type="checkbox"]').dispatchEvent(evt);
+                    }
+                })
+            }
+        }
+    }
+</script>

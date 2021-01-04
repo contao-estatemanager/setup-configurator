@@ -22,29 +22,38 @@
        <target>Inhalt</target>
      </trans-unit>
 
-     <trans-unit id="tl_real_estate_configurator.openimmo">
-      <source>OpenImmo</source>
-      <target>OpenImmo</target>
+     <trans-unit id="tl_real_estate_configurator.interface">
+      <source>Interface &amp; Provider</source>
+      <target>Schnittstelle &amp; Anbieter</target>
      </trans-unit>
-     <trans-unit id="tl_real_estate_configurator.openimmo_no_interface">
-       <source>No interface of type "OpenImmo" could be found.</source>
-       <target>Es konnte keine Schnittstelle vom Typ "OpenImmo" gefunden werden. </target>
+     <trans-unit id="tl_real_estate_configurator.interface_not_found">
+       <source>No interface could be found.</source>
+       <target>Es konnte keine Schnittstelle gefunden werden. Der Einrichtungsassistent legt eine neue Schnittstelle sowie einen Anbieter an (DEMO). Sofern Sie eine eigene Schnittstelle als Basis verwenden möchten, legen Sie diese bitte manuell an. %s</target>
      </trans-unit>
-     <trans-unit id="tl_real_estate_configurator.openimmo_create_interface.0">
+     <trans-unit id="tl_real_estate_configurator.interface_create">
        <source>Create interface</source>
        <target>Schnittstelle anlegen</target>
      </trans-unit>
-     <trans-unit id="tl_real_estate_configurator.openimmo_create_interface.1">
-       <source>A new interface is created. All data to be imported will be automatically assigned to this interface. If you set up your own interface, it can be selected here to import data.</source>
-       <target>Es wird eine neue Schnittstelle angelegt. Alle zu importierenden Daten werden dieser Schnittstelle zugeordnet. Sofern Sie eine eigene Schnittstelle einrichten, kann diese hier ausgewählt werden, um Daten zu importieren.</target>
+     <trans-unit id="tl_real_estate_configurator.interface_create_interface.0">
+       <source>Create demo interface and provider</source>
+       <target>Demo Schnittstelle und Anbieter anlegen</target>
      </trans-unit>
-      <trans-unit id="tl_real_estate_configurator.openimmo_interface.0">
+     <trans-unit id="tl_real_estate_configurator.interface_create_interface.1">
+       <source>A new interface is created.</source>
+       <target>Es wird eine neue Schnittstelle angelegt.</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.interface_select.0">
        <source>Interface</source>
        <target>Schnittstelle</target>
      </trans-unit>
-      <trans-unit id="tl_real_estate_configurator.openimmo_interface.1">
-       <source>Please select an interface in which the field assignments are to be created</source>
-       <target>Bitte wählen Sie eine Schnittstelle in der die Feldzuordnungen angelegt werden sollen</target>
+      <trans-unit id="tl_real_estate_configurator.interface_select.1">
+       <source>Please select an interface in which the following configurations should be applied.</source>
+       <target>Bitte wählen Sie eine Schnittstelle in der die folgenden Konfigurationen angewendet werden sollen.</target>
+     </trans-unit>
+
+     <trans-unit id="tl_real_estate_configurator.openimmo">
+      <source>OpenImmo</source>
+      <target>OpenImmo</target>
      </trans-unit>
       <trans-unit id="tl_real_estate_configurator.openimmo_import.0">
        <source>OpenImmo 1.2.7</source>
@@ -66,6 +75,27 @@
      <trans-unit id="tl_real_estate_configurator.fieldformat_import.1">
        <source>Imports the standard field formatting to be able to output values like areas or prices correctly.</source>
        <target>Importiert die Standard-Feldformatierungen um Werte wie Flächen oder Preise korrekt auszugeben.</target>
+     </trans-unit>
+
+     <trans-unit id="tl_real_estate_configurator.demodata">
+       <source>Content</source>
+       <target>Inhalt</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.estate_import.0">
+       <source>Import demo real estate</source>
+       <target>Demo-Immobilien importieren</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.estate_import.1">
+       <source>Real estate records are created and assigned to the specified interface.</source>
+       <target>Es werden Immobilien-Datensätze angelegt und der angegebenen Schnittstelle zugeordnet.</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.module_import.0">
+       <source>Import demo real estate</source>
+       <target>Module anlegen</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.module_import.1">
+       <source>Create the following modules: Real Estate List, Real Estate Results List, Real Estate Exposé</source>
+       <target>Lege folgende Module an: Immobilien-Liste, Immobilien-Ergebnisliste, Immobilien-Exposé</target>
      </trans-unit>
 
       <trans-unit id="tl_real_estate_configurator.submit">

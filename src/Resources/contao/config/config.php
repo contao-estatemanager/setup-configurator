@@ -24,14 +24,15 @@ array_insert($GLOBALS['TL_RAM']['configuration'], 0, array(
 $GLOBALS['EM_CONFIGURATOR'] = array
 (
     'basic' => array(
+        'ContaoEstateManager\SetupConfigurator\ConfigInterface',
         'ContaoEstateManager\SetupConfigurator\ConfigFieldFormat'
     ),
     'interface' => array(
         'ContaoEstateManager\SetupConfigurator\ConfigOpenImmo'
-    )/*,
+    ),
     'content' => array(
-
-    )*/
+        'ContaoEstateManager\SetupConfigurator\ConfigDemoData'
+    )
 );
 
 // Style sheet

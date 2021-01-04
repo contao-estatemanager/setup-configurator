@@ -1,0 +1,21 @@
+<?php $this->extend('conf_wrapper'); ?>
+
+<?php $this->block('content'); ?>
+
+<div class="em-widget full">
+    <div class="checkbox_container">
+        <input type="checkbox" name="estate" id="estate"<?=$this->executed ? ' disabled' : ''?> value="1"/>
+        <label for="estate"><?=$this->labelEstate?></label>
+    </div>
+    <p class="tl_help tl_tip" title=""><?=$this->descEstate?></p>
+</div>
+
+<div class="em-widget full">
+    <div class="checkbox_container">
+        <input type="checkbox" name="modules" id="modules"<?=$this->executed ? ' disabled' : ''?> value="1"/>
+        <label for="modules"><?=$this->labelModule?></label>
+    </div>
+    <p class="tl_help tl_tip" title=""><?=$this->descModule?></p>
+</div>
+
+<?php $this->endblock(); ?>

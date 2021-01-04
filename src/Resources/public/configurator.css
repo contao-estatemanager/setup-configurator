@@ -1,14 +1,22 @@
 .re_configuratior .info, .re_configuratior .em-message {
   margin: 15px 15px 25px;
+  line-height: 1.3;
+}
+.re_configuratior .info {
+  font-weight: 500;
+  font-size: 1rem;
   padding: 15px;
-  color: #111;
-  background: #F1F7FE;
-  border: 1px solid #B5D2E3;
+  color: #bdebee;
+  background: linear-gradient(45deg, #0a73f2 0%, #4c98ef 100%, #1578ea 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0a73f2", endColorstr="#1578ea",GradientType=1 );
 }
 .re_configuratior .em-message {
   width: 100%;
   padding: 9px;
   margin: 3px 10px 10px;
+  color: #111;
+  background: #F1F7FE;
+  border: 1px solid #B5D2E3;
 }
 .re_configuratior .em_module_box {
   position: relative;
@@ -50,6 +58,9 @@
   background: #f4fff1;
   border-color: #d4eabf;
 }
+.re_configuratior .em-module.complete .em-content {
+  background: #fcfffc;
+}
 .re_configuratior .em-content {
   display: flex;
   justify-content: space-between;
@@ -74,7 +85,7 @@
   font-size: 1rem;
   color: #838990;
   top: -5px;
-  left: 190px;
+  left: 225px;
   z-index: 1;
   padding: 0 6px 24px 42px;
   background: url(/system/themes/flexible/icons/arrow_left.svg) 6px bottom no-repeat;

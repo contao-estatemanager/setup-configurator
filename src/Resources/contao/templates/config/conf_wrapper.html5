@@ -1,6 +1,6 @@
 <div class="em-module<?=$this->executed ? ' complete' : ''?>">
     <div class="em-header">
-        <input type="checkbox" name="<?=$this->configName?>" id="<?=$this->configName?>" value="1" onchange="document.getElementById('group_hint').style.display='none'"<?=$this->executed ? ' disabled' : ''?>/>
+        <input type="checkbox" name="<?=$this->configName?>" id="<?=$this->configName?>" value="1" onchange="document.getElementById('group_hint').style.display='none'"<?=$this->executed || $this->force ? ' disabled' : ''?><?=$this->force ? ' checked' : ''?>/>
         <label for="<?=$this->configName?>">
             <?php if ($this->headline): ?>
                 <<?= $this->hl ?>><?= $this->headline ?></<?= $this->hl ?>>

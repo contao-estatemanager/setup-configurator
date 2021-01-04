@@ -1,0 +1,31 @@
+<?php $this->extend('conf_wrapper'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php if($this->interfaces): ?>
+    <div class="em-widget">
+        <label><?=$this->labelInterface?></label>
+        <select name="interface_id" id="interface_id" class="tl_select">
+            <?php foreach($this->interfaces as $id => $title): ?>
+                <option value="<?=$id?>"><?=$title?></option>
+            <?php endforeach; ?>
+        </select>
+        <p class="tl_help tl_tip" title=""><?=$this->descInterface?></p>
+    </div>
+<?php else: ?>
+    <p class="em-message">
+        <?=$this->noInterface?>
+    </p>
+    <div class="em-widget full">
+        <div class="checkbox_container">
+            <input type="hidden" name="interface_id" value="demo"/>
+            <input type="checkbox" name="force_interface" id="force_interface" disabled checked value="1"/>
+            <label for="force_interface"><?=$this->labelCreateInterface?></label>
+        </div>
+        <p class="tl_help tl_tip" title=""><?=$this->descCreateInterface?></p>
+    </div>
+<?php endif; ?>
+
+
+
+<?php $this->endblock(); ?>

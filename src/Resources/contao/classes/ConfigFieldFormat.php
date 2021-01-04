@@ -33,9 +33,4 @@ class ConfigFieldFormat extends Configurator implements \executable
     {
         // ToDo: Import default field formats
     }
-
-    public function isActive()
-    {
-        return false;
-    }
 }
