@@ -4,7 +4,7 @@
 
 <div class="em-widget full">
     <div class="checkbox_container">
-        <input type="checkbox" name="openimmo" id="openimmo_127"<?=$this->executed ? ' disabled' : ''?> value="1.2.7"/>
+        <input type="radio" name="openimmo" id="openimmo_127"<?=$this->executed ? ' disabled' : ''?> value="1.2.7"/>
         <label for="openimmo_127"><?=$this->labelImport?></label>
     </div>
     <p class="tl_help tl_tip" title=""><?=$this->descImport?></p>

@@ -1,0 +1,5 @@
+<ul class="em-messages">
+    <?php foreach($this->logs as $log): ?>
+        <li class="<?=$log[1]?>"><?=$log[0]?></li>
+    <?php endforeach; ?>
+</ul>

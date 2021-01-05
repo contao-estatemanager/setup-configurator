@@ -2,6 +2,8 @@
 
 namespace ContaoEstateManager\SetupConfigurator;
 
+use ContaoEstateManager\EstateManager;
+
 /**
  * Configurator module "field format".
  *
@@ -31,6 +33,9 @@ class ConfigFieldFormat extends Configurator implements \executable
 
     public function run()
     {
-        // ToDo: Import default field formats
+        $objEstateManager = new EstateManager();
+        $objEstateManager->importFieldFormats();
+
+        $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['fieldformat_log_created']);
     }
 }

@@ -13,7 +13,6 @@ namespace ContaoEstateManager\SetupConfigurator;
 use Contao\BackendModule;
 use Contao\BackendUser;
 use Contao\Input;
-use Contao\StringUtil;
 use Contao\System;
 
 /**
@@ -37,9 +36,6 @@ class ModuleRealEstateConfigurator extends BackendModule
 	 */
 	protected function compile()
 	{
-	    // Import user
-        $this->import('BackendUser', 'User');
-
 		System::loadLanguageFile('tl_real_estate_configurator');
 
         $this->Template->description = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['description'];

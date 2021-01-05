@@ -79,6 +79,10 @@ class ConfigInterface extends Configurator implements \executable
     {
         if(Input::post('interface_id') !== 'demo')
         {
+            $objInterface = $this->getInterface();
+
+            $this->moduleLog(sprintf($GLOBALS['TL_LANG']['tl_real_estate_configurator']['interface_log_interface_used'], $objInterface->title));
+
             return;
         }
 
@@ -92,7 +96,7 @@ class ConfigInterface extends Configurator implements \executable
             $objProvider->tstamp = time();
             $objProvider->anbieternr = 'DEMO';
             $objProvider->forwardingMode = 'contact';
-            $objProvider->firma = 'DEMO Anbieter';
+            $objProvider->firma = 'DEMO';
             $objProvider->published = 1;
             // ToDo: Default image
 
@@ -109,6 +113,12 @@ class ConfigInterface extends Configurator implements \executable
             // ToDo: Default image
 
             $objContact->save();
+
+            $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['interface_log_provider_created']);
+        }
+        else
+        {
+            $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['interface_log_provider_exists']);
         }
 
         // Check if demo interface already exists
@@ -144,6 +154,12 @@ class ConfigInterface extends Configurator implements \executable
             $objInterface->filesPathContactPerson = $dirProvider->getModel()->uuid;
 
             $objInterface->save();
+
+            $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['interface_log_interface_created']);
+        }
+        else
+        {
+            $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['interface_log_interface_exists']);
         }
     }
 

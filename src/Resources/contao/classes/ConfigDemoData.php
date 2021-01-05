@@ -47,8 +47,6 @@ class ConfigDemoData extends Configurator implements \executable
 
         $this->objTemplate->labelEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][0];
         $this->objTemplate->descEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][1];
-        $this->objTemplate->labelModule = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['module_import'][0];
-        $this->objTemplate->descModule = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['module_import'][1];
 
         return parent::compile();
     }

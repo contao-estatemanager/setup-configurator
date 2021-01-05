@@ -24,14 +24,24 @@ array_insert($GLOBALS['TL_RAM']['configuration'], 0, array(
 $GLOBALS['EM_CONFIGURATOR'] = array
 (
     'basic' => array(
-        'ContaoEstateManager\SetupConfigurator\ConfigInterface',
-        'ContaoEstateManager\SetupConfigurator\ConfigFieldFormat'
+        'ContaoEstateManager\SetupConfigurator\ConfigInterface'
     ),
     'interface' => array(
         'ContaoEstateManager\SetupConfigurator\ConfigOpenImmo'
     ),
+    'config' => array(
+        'ContaoEstateManager\SetupConfigurator\ConfigFieldFormat',
+        'ContaoEstateManager\SetupConfigurator\ConfigGroupType',
+    ),
     'content' => array(
         'ContaoEstateManager\SetupConfigurator\ConfigDemoData'
+    )
+);
+
+$GLOBALS['EM_IMPORT'] = array(
+    'group_types' => array(
+        'living'     => 'group_types_living.sql',
+        'commercial' => 'group_types_commercial.sql'
     )
 );
 

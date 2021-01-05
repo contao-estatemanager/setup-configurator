@@ -2,7 +2,8 @@
 
 namespace ContaoEstateManager\SetupConfigurator;
 
-use ContaoEstateManager\InterfaceModel;
+use Contao\Input;
+use ContaoEstateManager\EstateManager;
 
 /**
  * Configurator module "open immo".
@@ -40,6 +41,12 @@ class ConfigOpenImmo extends Configurator implements \executable
      */
     public function run()
     {
-        // ToDo: Import OpenImmo Mapping
+        $objInterface = $this->getInterface();
+        Input::setGet('id', $objInterface->id);
+
+        $objEstateManager = new EstateManager();
+        $objEstateManager->importDefaultMappings();
+
+        $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['openimmo_log_created']);
     }
 }

@@ -1,0 +1,15 @@
+<?php $this->extend('conf_wrapper'); ?>
+
+<?php $this->block('content'); ?>
+
+<?php $x=1; foreach($this->groups as $source => list($label, $desc)):?>
+    <div class="em-widget full">
+        <div class="checkbox_container">
+            <input type="checkbox" name="group_type[]" id="group_type_<?=$x?>"<?=$this->executed ? ' disabled' : ''?> value="<?=$source?>"/>
+            <label for="group_type_<?=$x?>"><?=$label?></label>
+        </div>
+        <p class="tl_help tl_tip" title=""><?=$desc?></p>
+    </div>
+<?php $x++; endforeach; ?>
+
+<?php $this->endblock(); ?>

@@ -13,9 +13,8 @@ namespace ContaoEstateManager\SetupConfigurator;
 use Contao\Backend;
 use Contao\BackendTemplate;
 use Contao\Input;
-
+use Contao\System;
 use ContaoEstateManager\InterfaceModel;
-
 /**
  * Configurator class.
  *
@@ -23,6 +22,7 @@ use ContaoEstateManager\InterfaceModel;
  */
 abstract class Configurator extends Backend
 {
+
     /**
      * Config name
      * @var string
@@ -54,6 +54,12 @@ abstract class Configurator extends Backend
     public $force = false;
 
     /**
+     * Messages
+     * @var array
+     */
+    public $messages = array();
+
+    /**
      * Configurator constructor
      */
     public function __construct()
@@ -62,6 +68,8 @@ abstract class Configurator extends Backend
         $this->objTemplate->configName = $this->configName;
         $this->objTemplate->hl = 'h3';
         $this->objTemplate->headline = $GLOBALS['TL_LANG']['tl_real_estate_configurator'][ $this->configName ];
+
+        $this->messages[$this->configName] = array();
 
         parent::__construct();
     }
@@ -81,6 +89,7 @@ abstract class Configurator extends Backend
      */
     public function compile()
     {
+        $this->objTemplate->messages = $this->getModuleLog();
         $this->objTemplate->force = $this->force;
         $this->objTemplate->executed = $this->executed;
         return $this->objTemplate->parse();
@@ -93,6 +102,27 @@ abstract class Configurator extends Backend
     public function isActive()
     {
         return false;
+    }
+
+    /**
+     * Add a message
+     *
+     * @param $strContent
+     * @param string $type
+     */
+    public function moduleLog($strContent, $type = 'success')
+    {
+        $this->messages[$this->configName][] = [$strContent, $type];
+    }
+
+    /**
+     * Return all module messages
+     */
+    public function getModuleLog()
+    {
+        $objTemplate = new BackendTemplate('conf_messages');
+        $objTemplate->logs = $this->messages[$this->configName];
+        return $objTemplate->parse();
     }
 
     /**
@@ -112,5 +142,25 @@ abstract class Configurator extends Backend
         }
 
         return null;
+    }
+
+    /**
+     *
+     */
+    public function importFromSql($strDump)
+    {
+        $file = System::getContainer()->getParameter('kernel.project_dir') . '/web/bundles/estatemanagersetupconfigurator/import/' . $strDump;
+        $data = file($file);
+
+        if($data)
+        {
+            foreach ($data as $line)
+            {
+                if($query = preg_replace( "/\r|\n/", "", $line))
+                {
+                    $this->Database->query($query);
+                }
+            }
+        }
     }
 }

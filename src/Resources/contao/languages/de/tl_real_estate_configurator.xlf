@@ -3,7 +3,7 @@
     <body>
       <trans-unit id="tl_real_estate_configurator.description">
        <source>The setup wizard helps you to configure your project. Please note that manual settings will be reset and therefore this procedure should only be performed to start a new project.</source>
-       <target>Der Einrichtungsassistent hilft Ihnen bei der Grundeinrichtung und Konfiguration neuer Projekte. Bitte beachten Sie, dass manuelle Einstellungen zurücksetzt werden und dieser Vorgang daher ausschließlich zum Start eines neuen Projektes durchgeführt werden sollte.</target>
+       <target>Der Einrichtungsassistent hilft Ihnen bei der Grundeinrichtung und Konfiguration neuer Projekte. &lt;b&gt;Bitte beachten Sie, dass manuelle Einstellungen zurücksetzt werden und dieser Vorgang daher ausschließlich zum Start eines neuen Projektes durchgeführt werden sollte&lt;/b&gt;.</target>
      </trans-unit>
       <trans-unit id="tl_real_estate_configurator.group_hint">
        <source>Select the checkbox of a group to apply the configuration of it.</source>
@@ -16,6 +16,10 @@
       <trans-unit id="tl_real_estate_configurator.group_basic">
        <source>Basic settings</source>
        <target>Basis-Einstellungen</target>
+     </trans-unit>
+      <trans-unit id="tl_real_estate_configurator.group_config">
+       <source>Config</source>
+       <target>Konfiguration</target>
      </trans-unit>
       <trans-unit id="tl_real_estate_configurator.group_content">
        <source>Content</source>
@@ -51,6 +55,27 @@
        <target>Bitte wählen Sie eine Schnittstelle in der die folgenden Konfigurationen angewendet werden sollen.</target>
      </trans-unit>
 
+     <trans-unit id="tl_real_estate_configurator.interface_log_interface_used">
+       <source>Interface "%s" was used</source>
+       <target>Schnittstelle "%s" wurde verwendet</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.interface_log_interface_created">
+       <source>Interface "DEMO" was created</source>
+       <target>Schnittstelle "DEMO" wurde angelegt</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.interface_log_interface_exists">
+       <source>Interface "DEMO" already exists</source>
+       <target>Schnittstelle "DEMO" existiert bereits</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.interface_log_provider_created">
+       <source>Provider "DEMO" was created</source>
+       <target>Anbieter "DEMO" wurde angelegt</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.interface_log_provider_exists">
+       <source>Provider "DEMO" already exists</source>
+       <target>Anbieter "DEMO" existiert bereits</target>
+     </trans-unit>
+
      <trans-unit id="tl_real_estate_configurator.openimmo">
       <source>OpenImmo</source>
       <target>OpenImmo</target>
@@ -62,6 +87,10 @@
       <trans-unit id="tl_real_estate_configurator.openimmo_import.1">
        <source>Imports all interface information based on the OpenImmo standard and creates appropriate field mappings.</source>
        <target>Importiert alle Schnittstellen-Informationen auf Basis des OpenImmo-Standards und legt entsprechende Feldzuordnungen an.</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.openimmo_log_created">
+       <source>OpenImmo (1.2.7) field mappings were imported successfully</source>
+       <target>OpenImmo (1.2.7) Feldzuordnungen wurden erfolgreich importiert</target>
      </trans-unit>
 
      <trans-unit id="tl_real_estate_configurator.fieldformat">
@@ -76,10 +105,31 @@
        <source>Imports the standard field formatting to be able to output values like areas or prices correctly.</source>
        <target>Importiert die Standard-Feldformatierungen um Werte wie Flächen oder Preise korrekt auszugeben.</target>
      </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.fieldformat_log_created">
+       <source>Field formatting was imported successfully</source>
+       <target>Feldformatierungen wurden erfolgreich importiert</target>
+     </trans-unit>
+
+     <trans-unit id="tl_real_estate_configurator.grouptype">
+       <source>Object groups / types</source>
+       <target>Objektgruppen / Typen</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.grouptype_log_created">
+       <source>Object groups / types were imported successfully</source>
+       <target>Objektgruppen / Typen wurden erfolgreich importiert</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.grouptype_log_truncate">
+       <source>Database table (%s) was truncate successfully</source>
+       <target>Datenbank-Tabelle (%s) wurde erfolgreich geleert</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.grouptype_log_imported">
+       <source>Database table (%s) was import successfully</source>
+       <target>Datenbank-Tabelle (%s) wurde erfolgreich importiert</target>
+     </trans-unit>
 
      <trans-unit id="tl_real_estate_configurator.demodata">
-       <source>Content</source>
-       <target>Inhalt</target>
+       <source>Real estate</source>
+       <target>Immobilien</target>
      </trans-unit>
      <trans-unit id="tl_real_estate_configurator.estate_import.0">
        <source>Import demo real estate</source>
@@ -89,18 +139,27 @@
        <source>Real estate records are created and assigned to the specified interface.</source>
        <target>Es werden Immobilien-Datensätze angelegt und der angegebenen Schnittstelle zugeordnet.</target>
      </trans-unit>
-     <trans-unit id="tl_real_estate_configurator.module_import.0">
-       <source>Import demo real estate</source>
-       <target>Module anlegen</target>
-     </trans-unit>
-     <trans-unit id="tl_real_estate_configurator.module_import.1">
-       <source>Create the following modules: Real Estate List, Real Estate Results List, Real Estate Exposé</source>
-       <target>Lege folgende Module an: Immobilien-Liste, Immobilien-Ergebnisliste, Immobilien-Exposé</target>
-     </trans-unit>
 
       <trans-unit id="tl_real_estate_configurator.submit">
        <source>Start setup</source>
        <target>Einrichtung starten</target>
+     </trans-unit>
+
+     <trans-unit id="tl_real_estate_configurator.group_type_living.0">
+       <source>Living</source>
+       <target>Wohnen</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.group_type_living.1">
+       <source>Living</source>
+       <target>Importiert Objektgruppen und Typen für Wohnimmobilien</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.group_type_commercial.0">
+       <source>Commercial</source>
+       <target>Gewerbe</target>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.group_type_commercial.1">
+       <source>Commercial</source>
+       <target>Importiert Objektgruppen und Typen für Gewerbeimmobilien</target>
      </trans-unit>
     </body>
   </file>

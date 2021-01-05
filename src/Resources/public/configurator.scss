@@ -1,17 +1,30 @@
 .re_configuratior{
 
   .info, .em-message{
-    margin: 15px 15px 25px;
     line-height: 1.3;
   }
 
   .info{
-    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 1rem;
-    padding: 15px;
-    color: #bdebee;
+    padding: 0 10px;
+    margin-bottom: 35px;
+
     background: linear-gradient(45deg, #0a73f2 0%, #4c98ef 100%, #1578ea 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0a73f2", endColorstr="#1578ea",GradientType=1 );
+
+    p{
+      color: #bdebee;
+      padding: 10px;
+      margin: 0;
+      max-width: 660px;
+
+      b{
+        color: #dde8e8;
+      }
+    }
   }
 
   .em-message{
@@ -99,6 +112,25 @@
     }
   }
 
+  ul.em-messages{
+    margin: 0 10px 10px;
+    padding: 0 0 0 25px;
+
+    li{
+      list-style: initial;
+      margin: 4px 0px;
+
+      &.success{
+        color: #5ca02e;
+        font-weight: 500;
+      }
+    }
+  }
+
+  input[type="radio"]{
+    margin: 3px 3px 3px 4px;
+  }
+
   #group_hint {
     position: absolute;
     font-family: "Architects Daughter",cursive;
@@ -113,6 +145,19 @@
 
     &.disabled{
       display: none;
+    }
+  }
+
+  &.run{
+
+    .em-module{
+      pointer-events: none;
+      opacity: .3;
+
+      &.complete{
+        pointer-events: initial;
+        opacity: 1;
+      }
     }
   }
 }

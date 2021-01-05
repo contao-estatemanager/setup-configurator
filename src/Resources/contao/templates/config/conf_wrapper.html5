@@ -8,7 +8,11 @@
         </label>
     </div>
     <div class="em-content">
-        <?php $this->block('content'); ?>
-        <?php $this->endblock(); ?>
+        <?php if($this->executed): ?>
+            <?= $this->messages ?>
+        <?php else: ?>
+            <?php $this->block('content'); ?>
+            <?php $this->endblock(); ?>
+        <?php endif; ?>
     </div>
 </div>
