@@ -38,7 +38,8 @@ $GLOBALS['EM_CONFIGURATOR'] = array
     )
 );
 
-$GLOBALS['EM_IMPORT'] = array(
+$GLOBALS['EM_IMPORT'] = array
+(
     'group_types' => array(
         'living'     => 'group_types_living.sql',
         'commercial' => 'group_types_commercial.sql'

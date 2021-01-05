@@ -29,22 +29,6 @@ class ConfigDemoData extends Configurator implements \executable
      */
     public function compile()
     {
-        $this->objTemplate->interfaces = null;
-
-        $objInterfaces = InterfaceModel::findAll();
-
-        if(null !== $objInterfaces)
-        {
-            $arrInterfaces = [];
-
-            while ($objInterfaces->next())
-            {
-                $arrInterfaces[ $objInterfaces->id ] = $objInterfaces->title;
-            }
-
-            $this->objTemplate->interfaces = $arrInterfaces;
-        }
-
         $this->objTemplate->labelEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][0];
         $this->objTemplate->descEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][1];
 
@@ -56,6 +40,6 @@ class ConfigDemoData extends Configurator implements \executable
      */
     public function run()
     {
-        // ToDo: Import
+        // ToDo: Import via Importer
     }
 }

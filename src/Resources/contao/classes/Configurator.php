@@ -15,11 +15,7 @@ use Contao\BackendTemplate;
 use Contao\Input;
 use Contao\System;
 use ContaoEstateManager\InterfaceModel;
-/**
- * Configurator class.
- *
- * @author Daniele Sciannimanica <https://github.com/doishub>
- */
+
 abstract class Configurator extends Backend
 {
 
@@ -145,7 +141,7 @@ abstract class Configurator extends Backend
     }
 
     /**
-     *
+     * Import from sql file
      */
     public function importFromSql($strDump)
     {

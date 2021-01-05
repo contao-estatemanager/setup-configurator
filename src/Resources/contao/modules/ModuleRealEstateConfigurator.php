@@ -81,6 +81,5 @@ class ModuleRealEstateConfigurator extends BackendModule
                 $this->Template->content .= $buffer;
             }
         }
-
 	}
 }
