@@ -2,7 +2,9 @@
 
 namespace ContaoEstateManager\SetupConfigurator;
 
-use ContaoEstateManager\InterfaceModel;
+use Contao\Folder;
+use Contao\Input;
+use ContaoEstateManager\ContactPersonModel;
 
 /**
  * Configurator module "demo data".
@@ -40,6 +42,39 @@ class ConfigDemoData extends Configurator implements \executable
      */
     public function run()
     {
-        // ToDo: Import via Importer
+        if(!Input::post('estate'))
+        {
+            return;
+        }
+
+        // Get interface and contact person
+        $objInterface = $this->getInterface();
+        $objContactPerson = ContactPersonModel::findByPid($objInterface->provider, ['limit' => 1]);
+
+        // Move assets
+        $sourceDir = 'web/bundles/estatemanagersetupconfigurator/assets/demo';
+        $targetDir = 'files/estatemanager/demo';
+
+        $objTarget = new Folder($targetDir);
+        $objTarget->unprotect();
+        $objTarget->purge();
+
+        $this->moduleLog(sprintf($GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_log_assets'], $targetDir));
+
+        $objSource = new Folder($sourceDir);
+        $objSource->copyTo($targetDir);
+
+        // Truncate database table
+        $this->Database->execute("TRUNCATE TABLE tl_real_estate");
+        $this->moduleLog(sprintf($GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_log_truncate'], 'tl_real_estate'));
+
+        // Import estate data
+        $this->importFromSql(
+            'estate_demo.sql',
+            ['{{TIME}}', '{{PROVIDER}}', '{{CONTACT}}'],
+            [time(), $objInterface->provider, $objContactPerson->id]
+        );
+
+        $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_log_imported']);
     }
 }

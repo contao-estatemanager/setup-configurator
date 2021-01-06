@@ -18,6 +18,17 @@ use ContaoEstateManager\InterfaceModel;
 
 abstract class Configurator extends Backend
 {
+    /**
+     * Message flag: success
+     * @var string
+     */
+    const EM_SUCCESS = 'success';
+
+    /**
+     * Message flag: error
+     * @var string
+     */
+    const EM_ERROR = 'error';
 
     /**
      * Config name
@@ -106,7 +117,7 @@ abstract class Configurator extends Backend
      * @param $strContent
      * @param string $type
      */
-    public function moduleLog($strContent, $type = 'success')
+    public function moduleLog($strContent, $type = self::EM_SUCCESS)
     {
         $this->messages[$this->configName][] = [$strContent, $type];
     }
@@ -142,8 +153,12 @@ abstract class Configurator extends Backend
 
     /**
      * Import from sql file
+     *
+     * @param string $strDump
+     * @param array|null $arrSearch
+     * @param array|null $arrReplace
      */
-    public function importFromSql($strDump)
+    public function importFromSql(string $strDump, array $arrSearch = null, array $arrReplace = null)
     {
         $file = System::getContainer()->getParameter('kernel.project_dir') . '/web/bundles/estatemanagersetupconfigurator/import/' . $strDump;
         $data = file($file);
@@ -154,7 +169,16 @@ abstract class Configurator extends Backend
             {
                 if($query = preg_replace( "/\r|\n/", "", $line))
                 {
-                    $this->Database->query($query);
+                    if($arrSearch && $arrReplace)
+                    {
+                        $query = str_replace($arrSearch, $arrReplace, $query);
+                    }
+
+                    try{
+                        $this->Database->query($query);
+                    }catch(\Exception $e){
+                        $this->moduleLog($e, self::EM_ERROR);
+                    }
                 }
             }
         }

@@ -11,7 +11,6 @@
 namespace ContaoEstateManager\SetupConfigurator;
 
 use Contao\BackendModule;
-use Contao\BackendUser;
 use Contao\Input;
 use Contao\System;
 

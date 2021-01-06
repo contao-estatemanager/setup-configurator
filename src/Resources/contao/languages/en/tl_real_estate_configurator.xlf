@@ -106,6 +106,15 @@
      <trans-unit id="tl_real_estate_configurator.estate_import.1">
        <source>Real estate records are created and assigned to the specified interface.</source>
      </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.estate_log_assets">
+       <source>Images were created (%s)</source>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.estate_log_truncate">
+       <source>Database table (%s) was truncate successfully</source>
+     </trans-unit>
+     <trans-unit id="tl_real_estate_configurator.estate_log_imported">
+       <source>Real estate records were imported successfully</source>
+     </trans-unit>
 
       <trans-unit id="tl_real_estate_configurator.submit">
        <source>Start setup</source>
