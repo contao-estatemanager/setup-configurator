@@ -53,10 +53,9 @@ class ConfigDemoData extends Configurator implements \executable
 
         // Move assets
         $sourceDir = 'web/bundles/estatemanagersetupconfigurator/assets/demo';
-        $targetDir = 'files/estatemanager/demo';
+        $targetDir = 'files/demo';
 
         $objTarget = new Folder($targetDir);
-        $objTarget->unprotect();
         $objTarget->purge();
 
         $this->moduleLog(sprintf($GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_log_assets'], $targetDir));
@@ -76,5 +75,8 @@ class ConfigDemoData extends Configurator implements \executable
         );
 
         $this->moduleLog($GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_log_imported']);
+
+        // Unprotect demo folder
+        $objTarget->unprotect();
     }
 }
