@@ -40,7 +40,7 @@ class ConfigInterface extends Configurator implements \executable
      * Compile Template
      * @return string
      */
-    public function compile()
+    public function compile(): string
     {
         $this->force = true;
         $this->objTemplate->interfaces = null;
@@ -166,7 +166,7 @@ class ConfigInterface extends Configurator implements \executable
     /**
      * @return bool
      */
-    public function shouldRun()
+    public function shouldRun(): bool
     {
         return true;
     }

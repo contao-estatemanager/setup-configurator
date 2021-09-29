@@ -28,7 +28,7 @@ class ConfigOpenImmo extends Configurator implements \executable
      * Compile Template
      * @return string
      */
-    public function compile()
+    public function compile(): string
     {
         $this->objTemplate->labelImport = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['openimmo_import'][0];
         $this->objTemplate->descImport = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['openimmo_import'][1];

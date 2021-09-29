@@ -35,7 +35,7 @@ class ConfigGroupType extends Configurator implements \executable
      * Compile Template
      * @return string
      */
-    public function compile()
+    public function compile(): string
     {
         $groups = array();
 
