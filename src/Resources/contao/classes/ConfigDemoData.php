@@ -4,6 +4,7 @@ namespace ContaoEstateManager\SetupConfigurator;
 
 use Contao\Folder;
 use Contao\Input;
+use Contao\System;
 use ContaoEstateManager\ContactPersonModel;
 
 /**
@@ -52,7 +53,8 @@ class ConfigDemoData extends Configurator implements \executable
         $objContactPerson = ContactPersonModel::findByPid($objInterface->provider, ['limit' => 1]);
 
         // Move assets
-        $sourceDir = 'web/bundles/estatemanagersetupconfigurator/assets/demo';
+        $webDir    = basename(System::getContainer()->getParameter('contao.web_dir'));
+        $sourceDir = $webDir . '/bundles/estatemanagersetupconfigurator/assets/demo';
         $targetDir = 'files/demo';
 
         $objTarget = new Folder($targetDir);
