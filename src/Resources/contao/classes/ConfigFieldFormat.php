@@ -23,7 +23,7 @@ class ConfigFieldFormat extends Configurator implements \executable
      */
     protected $strTemplate = 'conf_field_format';
 
-    public function compile()
+    public function compile(): string
     {
         $this->objTemplate->label = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['fieldformat_import'][0];
         $this->objTemplate->desc = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['fieldformat_import'][1];

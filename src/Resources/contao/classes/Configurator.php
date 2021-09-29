@@ -40,7 +40,7 @@ abstract class Configurator extends Backend
      * Template
      * @var BackendTemplate
      */
-    protected $objTemplate;
+    protected BackendTemplate $objTemplate;
 
     /**
      * Template
@@ -52,19 +52,19 @@ abstract class Configurator extends Backend
      * Run method was executed
      * @var bool
      */
-    public $executed = false;
+    public bool $executed = false;
 
     /**
      * Force module
      * @var bool
      */
-    public $force = false;
+    public bool $force = false;
 
     /**
      * Messages
      * @var array
      */
-    public $messages = array();
+    public array $messages = array();
 
     /**
      * Configurator constructor
@@ -83,18 +83,16 @@ abstract class Configurator extends Backend
 
     /**
      * Checking the processing of a module
-     * @return bool
      */
-    public function shouldRun()
+    public function shouldRun(): bool
     {
         return !!Input::post($this->configName);
     }
 
     /**
      * Compile
-     * @return string
      */
-    public function compile()
+    public function compile(): string
     {
         $this->objTemplate->messages = $this->getModuleLog();
         $this->objTemplate->force = $this->force;
@@ -106,7 +104,7 @@ abstract class Configurator extends Backend
      * Is module active
      * @return false
      */
-    public function isActive()
+    public function isActive(): bool
     {
         return false;
     }
@@ -117,7 +115,7 @@ abstract class Configurator extends Backend
      * @param $strContent
      * @param string $type
      */
-    public function moduleLog($strContent, $type = self::EM_SUCCESS)
+    public function moduleLog($strContent, string $type = self::EM_SUCCESS)
     {
         $this->messages[$this->configName][] = [$strContent, $type];
     }
@@ -125,7 +123,7 @@ abstract class Configurator extends Backend
     /**
      * Return all module messages
      */
-    public function getModuleLog()
+    public function getModuleLog(): string
     {
         $objTemplate = new BackendTemplate('conf_messages');
         $objTemplate->logs = $this->messages[$this->configName];
@@ -134,10 +132,8 @@ abstract class Configurator extends Backend
 
     /**
      * Return the current interface model
-     *
-     * @return InterfaceModel|null
      */
-    public function getInterface()
+    public function getInterface(): ?InterfaceModel
     {
         if(Input::post('interface_id') && is_numeric(Input::post('interface_id')))
         {
@@ -153,15 +149,11 @@ abstract class Configurator extends Backend
 
     /**
      * Import from sql file
-     *
-     * @param string $strDump
-     * @param array|null $arrSearch
-     * @param array|null $arrReplace
      */
     public function importFromSql(string $strDump, array $arrSearch = null, array $arrReplace = null)
     {
-        $file = System::getContainer()->getParameter('kernel.project_dir') . '/web/bundles/estatemanagersetupconfigurator/import/' . $strDump;
-        $data = file($file);
+        $file = System::getContainer()->getParameter('contao.web_dir') . '/bundles/estatemanagersetupconfigurator/import/' . $strDump;
+        $data = @file($file);
 
         if($data)
         {

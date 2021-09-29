@@ -47,7 +47,7 @@ $GLOBALS['EM_IMPORT'] = array
 );
 
 // Style sheet
-if (TL_MODE == 'BE')
+if (TL_MODE === 'BE')
 {
-    $GLOBALS['TL_CSS'][] = 'bundles/estatemanagersetupconfigurator/configurator.css|static';
+    $GLOBALS['TL_CSS'][] = 'bundles/estatemanagersetupconfigurator/configurator.css';
 }

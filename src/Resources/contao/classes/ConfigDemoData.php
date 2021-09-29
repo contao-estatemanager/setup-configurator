@@ -29,7 +29,7 @@ class ConfigDemoData extends Configurator implements \executable
      * Compile Template
      * @return string
      */
-    public function compile()
+    public function compile(): string
     {
         $this->objTemplate->labelEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][0];
         $this->objTemplate->descEstate = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['estate_import'][1];
