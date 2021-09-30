@@ -9,16 +9,14 @@
  */
 
 // Back end modules
-$GLOBALS['BE_MOD']['real_estate']['configurator'] = array
+$GLOBALS['BE_MOD']['estatemanager']['configurator'] = array
 (
     'hideInNavigation'      => true,
     'callback'              => 'ContaoEstateManager\SetupConfigurator\ModuleRealEstateConfigurator'
 );
 
 // Add configuration to administration modules
-array_insert($GLOBALS['TL_RAM']['configuration'], 0, array(
-    'configurator'
-));
+$GLOBALS['TL_RAM']['configuration'][] = 'configurator';
 
 // Configurator modules
 $GLOBALS['EM_CONFIGURATOR'] = array
