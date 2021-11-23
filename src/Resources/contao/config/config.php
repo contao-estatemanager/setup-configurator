@@ -9,40 +9,31 @@
  */
 
 // Back end modules
-$GLOBALS['BE_MOD']['estatemanager']['configurator'] = array
-(
+$GLOBALS['BE_MOD']['estatemanager']['configurator'] = [
     'hideInNavigation'      => true,
     'callback'              => 'ContaoEstateManager\SetupConfigurator\ModuleRealEstateConfigurator'
-);
+];
 
 // Add configuration to administration modules
-$GLOBALS['TL_RAM']['configuration'][] = 'configurator';
+$GLOBALS['CEM_RAM']['configuration'][] = 'configurator';
 
 // Configurator modules
-$GLOBALS['EM_CONFIGURATOR'] = array
-(
-    'basic' => array(
-        'ContaoEstateManager\SetupConfigurator\ConfigInterface'
-    ),
-    'interface' => array(
-        'ContaoEstateManager\SetupConfigurator\ConfigOpenImmo'
-    ),
-    'config' => array(
+$GLOBALS['CEM_SC_MODULES'] = [
+    'basic'     => ['ContaoEstateManager\SetupConfigurator\ConfigInterface'],
+    'interface' => ['ContaoEstateManager\SetupConfigurator\ConfigOpenImmo'],
+    'config'    => [
         'ContaoEstateManager\SetupConfigurator\ConfigFieldFormat',
         'ContaoEstateManager\SetupConfigurator\ConfigGroupType',
-    ),
-    'content' => array(
-        'ContaoEstateManager\SetupConfigurator\ConfigDemoData'
-    )
-);
+    ],
+    'content'   => ['ContaoEstateManager\SetupConfigurator\ConfigDemoData']
+];
 
-$GLOBALS['EM_IMPORT'] = array
-(
-    'group_types' => array(
+$GLOBALS['CEM_SC_IMPORT'] = [
+    'group_types' => [
         'living'     => 'group_types_living.sql',
         'commercial' => 'group_types_commercial.sql'
-    )
-);
+    ]
+];
 
 // Style sheet
 if (TL_MODE === 'BE')

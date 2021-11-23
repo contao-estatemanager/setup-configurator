@@ -39,7 +39,7 @@ class ConfigGroupType extends Configurator implements \executable
     {
         $groups = array();
 
-        foreach ($GLOBALS['EM_IMPORT']['group_types'] as $key => $source)
+        foreach ($GLOBALS['CEM_SC_IMPORT']['group_types'] as $key => $source)
         {
             $groups[$source] = $GLOBALS['TL_LANG']['tl_real_estate_configurator']['group_type_' . $key];
         }
@@ -73,7 +73,7 @@ class ConfigGroupType extends Configurator implements \executable
 
             $this->moduleLog(sprintf(
                 $GLOBALS['TL_LANG']['tl_real_estate_configurator']['grouptype_log_imported'],
-                $GLOBALS['TL_LANG']['tl_real_estate_configurator']['group_type_' . array_search($group, $GLOBALS['EM_IMPORT']['group_types'])][0]
+                $GLOBALS['TL_LANG']['tl_real_estate_configurator']['group_type_' . array_search($group, $GLOBALS['CEM_SC_IMPORT']['group_types'])][0]
             ));
         }
 

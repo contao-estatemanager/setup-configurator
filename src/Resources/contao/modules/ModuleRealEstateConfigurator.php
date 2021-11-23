@@ -47,7 +47,7 @@ class ModuleRealEstateConfigurator extends BackendModule
 
         $oldGroup = '';
 
-        foreach ($GLOBALS['EM_CONFIGURATOR'] as $strGroup => $callbacks)
+        foreach ($GLOBALS['CEM_SC_MODULES'] as $strGroup => $callbacks)
         {
             if($strGroup != $oldGroup)
             {
