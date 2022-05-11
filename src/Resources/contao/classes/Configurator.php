@@ -141,7 +141,7 @@ abstract class Configurator extends Backend
         }
         elseif(Input::post('interface_id')  === 'demo')
         {
-            return InterfaceModel::findByAnbieternr('DEMO');
+            return InterfaceModel::findByTitle('DEMO');
         }
 
         return null;

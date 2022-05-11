@@ -147,7 +147,6 @@ class ConfigInterface extends Configurator implements \executable
             $objInterface->deleteFilesOlderThen = 0;
 
             $objInterface->provider = $objProvider->id;
-            $objInterface->anbieternr = 'DEMO';
 
             $objInterface->importPath = $dirImport->getModel()->uuid;
             $objInterface->filesPath = $dirData->getModel()->uuid;
