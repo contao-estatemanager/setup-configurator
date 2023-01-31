@@ -133,7 +133,7 @@ abstract class Configurator extends Backend
     /**
      * Return the current interface model
      */
-    public function getInterface(): ?InterfaceModel
+    public function getInterface()
     {
         if(Input::post('interface_id') && is_numeric(Input::post('interface_id')))
         {
